@@ -1,4 +1,4 @@
-# [drseussfreak/docker-bind](https://hub.docker.com/r/evanrich/docker-bind)
+# [drseussfreak/bind](https://hub.docker.com/r/evanrich/bind)
 This is a fork of eafxx's bind image.  It hadn't been updated in quite some time, and the ubuntu release it was based on (19.10) has EOL'd.   This is an updated image, rebased to Ubuntu 20.04.2, the latest bind and the latest version of webmin (1.973).   Contributions welcomed, I will try to keep this updated as necessary.
  
 ## Contents
@@ -14,7 +14,7 @@ BIND is open source software that implements the Domain Name System (DNS) protoc
 
 ## Installation
 
-Automated builds of the image are available on [Dockerhub](https://hub.docker.com/r/drseussfreak/docker-bind) and is the recommended method of installation.
+Automated builds of the image are available on [Dockerhub](https://hub.docker.com/r/drseussfreak/bind) and is the recommended method of installation.
 
 ## Quickstart
 
@@ -24,7 +24,7 @@ Docker Run:
 docker run --name bind -d --restart=always \
   -p serverip:53:53/tcp -p serverip:53:53/udp -p 10000:10000/tcp \
   -v /path/to/bind/data:/data \
-  drseussfreak/docker-bind
+  drseussfreak/bind
 ```
 
 OR

@@ -4,11 +4,11 @@ services:
         container_name: bind
         hostname: bind
         network_mode: bridge
-        image: eafxx/bind
+        image: drseussfreak/bind
         restart: unless-stopped
         ports:
-            - "53:53/tcp"
-            - "53:53/udp"
+            - serverip:53:53/tcp
+            - serverip:53:53/udp
             - 10000:10000/tcp
         volumes:
             - /path/to/bind/data:/data
@@ -18,4 +18,4 @@ services:
             - WEBMIN_INIT_REFERERS=dns.domain.com
             - WEBMIN_INIT_REDIRECT_PORT=10000
             - ROOT_PASSWORD=password
-            - TZ=Europe/London
+            - TZ=America/Chicago

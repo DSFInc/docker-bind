@@ -12,7 +12,7 @@ RUN apt-get update \
 FROM ubuntu:latest
 LABEL maintainer="drseussfreak"
 
-ENV BIND_USER=bind \
+ENV BIND_USER=1000 \
     BIND_VERSION=9.16.1 \
     WEBMIN_VERSION=1.973 \
     DATA_DIR=/data \

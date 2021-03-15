@@ -1,5 +1,5 @@
 # hadolint ignore=DL3007
-FROM ubuntu:focal AS add-apt-repositories
+FROM ubuntu:latest AS add-apt-repositories
 
 SHELL ["/bin/bash", "-eo", "pipefail", "-c"]
 # hadolint ignore=DL3005,DL3008,DL3008 
@@ -36,7 +36,7 @@ RUN rm -rf /etc/apt/apt.conf.d/docker-gzip-indexes \
 
 COPY entrypoint.sh /sbin/entrypoint.sh
 
-RUN chmod 755 /sbin/entrypoint.sh
+RUN chmod 755 /sbin/entrypoint.sh /etc/bind
 
 EXPOSE 53/udp 53/tcp 10000/tcp
 

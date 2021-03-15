@@ -1,5 +1,5 @@
-# [drseussfreak/bind](https://hub.docker.com/r/evanrich/bind)
-This is a fork of eafxx's bind image.  It hadn't been updated in quite some time, and the ubuntu release it was based on (19.10) has EOL'd.   This is an updated image, rebased to Ubuntu 20.04.2, the latest bind and the latest version of webmin (1.973).   Contributions welcomed, I will try to keep this updated as necessary.
+# [drseussfreak/bind](https://hub.docker.com/r/drseussfreak/bind)
+This is a fork of [sameersbn's](https://github.com/sameersbn/docker-bind) bind image.  It hadn't been updated in quite some time, and the ubuntu release it was based on (19.10) has EOL'd.   This is an updated image, rebased to Ubuntu 20.04.2, the latest bind and the latest version of webmin (1.973).   Contributions welcomed, I will try to keep this updated as necessary.
  
 ## Contents
 - [Introduction](#introduction)
@@ -66,7 +66,7 @@ Container images are configured using parameters passed at runtime (such as thos
 | `-e WEBMIN_ENABLED=true` | Enable/Disable Webmin (true/false) |
 | `-e ROOT_PASSWORD=password` | Set a password for Webmin root. Parameter has no effect when the launch of Webmin is disabled.  |
 | `-e WEBMIN_INIT_SSL_ENABLED=false` | Enable/Disable Webmin SSL (true/false). If Webmin should be served via SSL or not. Defaults to `true`. |
-| `-e WEBMIN_INIT_REFERERS` | Enable/Disable Webmin SSL (true/false). Sets the allowed referrers to Webmin. Set this to your domain name of the reverse proxy. Example: `mywebmin.example.com`. Defaults to empty (no referrer)|
+| `-e WEBMIN_INIT_REFERERS` | Enable/Disable Webmin SSL (true/false). Sets the allowed referrers to Webmin. Set this to your domain name of the reverse proxy. Example: `mywebmin.example.com`. Defaults to empty (no referrer), for multuiple entires use a space delimeter|
 | `-e WEBMIN_INIT_REDIRECT_PORT` | The port Webmin is served from. Set this to your reverse proxy port, such as `443`. Defaults to `10000`. |
 | `-e BIND_EXTRA_FLAGS` | Default set to -g |
 | `-v /data` | Mount data directory for persistent config  |

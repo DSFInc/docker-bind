@@ -18,7 +18,6 @@ ENV BIND_USER=bind \
 COPY --from=add-apt-repositories /etc/apt/trusted.gpg.d /etc/apt/trusted.gpg.d
 COPY --from=add-apt-repositories /etc/apt/sources.list /etc/apt/sources.list
 
-SHELL ["/bin/bash", "-eo", "pipefail", "-c"]
 RUN rm -rf /etc/apt/apt.conf.d/docker-gzip-indexes \
  && apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y \

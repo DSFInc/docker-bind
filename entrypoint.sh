@@ -33,8 +33,8 @@ WEBMIN_INIT_SSL_ENABLED=${WEBMIN_INIT_SSL_ENABLED:-true}
 WEBMIN_INIT_REDIRECT_PORT=${WEBMIN_INIT_REDIRECT_PORT:-10000}
 WEBMIN_INIT_REFERERS=${WEBMIN_INIT_REFERERS:-NONE}
 #PGID and PGUID
-WEBMIN_USER=${PUID:-1000}
-WEBMIN_GROUP=${PGID:-1000}
+#WEBMIN_USER=${PUID:-1000}
+#WEBMIN_GROUP=${PGID:-1000}
 
 BIND_DATA_DIR=${DATA_DIR}/bind
 WEBMIN_DATA_DIR=${DATA_DIR}/webmin
@@ -172,7 +172,8 @@ if [[ -z ${1} ]]; then
   echo '|  Starting named   |'
   echo '---------------------'
   echo
-  exec "$(type -p named)" -u ${BIND_USER} ${BIND_EXTRA_FLAGS} -c /etc/bind/named.conf ${EXTRA_ARGS}
+#  exec "$(type -p named)" -u ${BIND_USER} ${BIND_EXTRA_FLAGS} -c /etc/bind/named.conf ${EXTRA_ARGS}
+  exec "$(type -p named)" -u bind ${BIND_EXTRA_FLAGS} -c /etc/bind/named.conf ${EXTRA_ARGS}
 else
   exec "$@"
 fi

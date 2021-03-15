@@ -9,12 +9,12 @@ RUN apt-get update \
  && wget --no-check-certificate -q -O - http://www.webmin.com/jcameron-key.asc | apt-key add - \
  && echo "deb [trusted=yes] http://download.webmin.com/download/repository sarge contrib" >> /etc/apt/sources.list
 
-FROM ubuntu:latest
+FROM ubuntu:focal
 LABEL maintainer="drseussfreak"
 
 ENV BIND_USER=bind \
     BIND_VERSION=9.16.1 \
-    WEBMIN_VERSION=1.973 \
+    WEBMIN_VERSION=1.970 \
     DATA_DIR=/data \
     WEBMIN_INIT_SSL_ENABLED="" \
     TZ=""

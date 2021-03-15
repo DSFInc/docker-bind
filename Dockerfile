@@ -1,9 +1,10 @@
 FROM ubuntu:latest AS add-apt-repositories
 
 RUN apt-get update \
- && DEBIAN_FRONTEND=noninteractive apt-get install -y gnupg \
+ && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends wget sudo gnupg2 \
  && apt-key adv --fetch-keys http://www.webmin.com/jcameron-key.asc \
- && echo "deb http://download.webmin.com/download/repository sarge contrib" >> /etc/apt/sources.list
+ && wget --no-check-certificate -q -O - http://www.webmin.com/jcameron-key.asc | apt-key add - \
+ && echo "deb [trusted=yes] http://download.webmin.com/download/repository sarge contrib" >> /etc/apt/sources.list
 
 FROM ubuntu:latest
 LABEL maintainer="DrSeussFreak"

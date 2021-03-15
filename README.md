@@ -52,6 +52,8 @@ Docker Compose
             - WEBMIN_INIT_REFERERS=dns.domain.com
             - WEBMIN_INIT_REDIRECT_PORT=10000
             - ROOT_PASSWORD=password
+	    - PUID=1000
+	    - PGID=1000
             - TZ=America/Chicago
 ```
 

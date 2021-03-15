@@ -32,6 +32,9 @@ WEBMIN_ENABLED=${WEBMIN_ENABLED:-true}
 WEBMIN_INIT_SSL_ENABLED=${WEBMIN_INIT_SSL_ENABLED:-true}
 WEBMIN_INIT_REDIRECT_PORT=${WEBMIN_INIT_REDIRECT_PORT:-10000}
 WEBMIN_INIT_REFERERS=${WEBMIN_INIT_REFERERS:-NONE}
+#PGID and PGUID
+WEBMIN_USER=${PUID:-1000}
+WEBMIN_GROUP${PGID:-1000}
 
 BIND_DATA_DIR=${DATA_DIR}/bind
 WEBMIN_DATA_DIR=${DATA_DIR}/webmin
@@ -50,12 +53,12 @@ create_bind_data_dir() {
   ln -sf "${BIND_DATA_DIR}"/etc /etc/bind
   chmod -R 0775 "${BIND_DATA_DIR}"
 #  chown -R "${BIND_USER}":"${BIND_USER}" "${BIND_DATA_DIR}"
-  chown -R 1000:1000 "${BIND_DATA_DIR}"
+  chown -R "${WEBMIN_USER}":"${WEBMIN_GROUP}" "${BIND_DATA_DIR}"
 
   if [ ! -d "${BIND_DATA_DIR}"/lib ]; then
     mkdir -p "${BIND_DATA_DIR}"/lib
     #chown "${BIND_USER}":"${BIND_USER}" "${BIND_DATA_DIR}"/lib
-     chown -R 1000:1000 "${BIND_DATA_DIR}"/lib
+     chown -R "${WEBMIN_USER}":"${WEBMIN_GROUP}" "${BIND_DATA_DIR}"/lib
  
   fi
   rm -rf /var/lib/bind
@@ -66,7 +69,7 @@ create_webmin_data_dir() {
   mkdir -p "${WEBMIN_DATA_DIR}"
   chmod -R 0755 "${WEBMIN_DATA_DIR}"
 #  chown -R root:root "${WEBMIN_DATA_DIR}"
-  chown -R 1000:1000 "${WEBMIN_DATA_DIR}"
+  chown -R "${WEBMIN_USER}":"${WEBMIN_GROUP}" "${WEBMIN_DATA_DIR}"
 
   # populate the default webmin configuration if it does not exist
   if [ ! -d "${WEBMIN_DATA_DIR}"/etc ]; then
@@ -110,14 +113,14 @@ set_root_passwd() {
 
 create_pid_dir() {
   mkdir -m 0775 -p /var/run/named
-  chown root:"${BIND_USER}" /var/run/named
-  chown 1000:1000 /var/run/named
+  #chown root:"${BIND_USER}" /var/run/named
+  chown "${WEBMIN_USER}":"${WEBMIN_GROUP}" /var/run/named
 }
 
 create_bind_cache_dir() {
   mkdir -m 0775 -p /var/cache/bind
-  chown root:"${BIND_USER}" /var/cache/bind
-  chown 1000:1000 /var/cache/bind
+  #chown root:"${BIND_USER}" /var/cache/bind
+  chown "${WEBMIN_USER}":"${WEBMIN_GROUP}" /var/cache/bind
 }
 
 first_init() {

@@ -49,7 +49,7 @@ Docker Compose
         environment:
             - WEBMIN_ENABLED=true
             - WEBMIN_INIT_SSL_ENABLED=false
-            - WEBMIN_INIT_REFERERS=dns.domain.com
+            - WEBMIN_INIT_REFERERS=webmin1.domain.com webmin2.domain.com
             - WEBMIN_INIT_REDIRECT_PORT=10000
             - ROOT_PASSWORD=password
             - TZ=America/Chicago

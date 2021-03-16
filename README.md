@@ -18,12 +18,6 @@ BIND is open source software that implements the Domain Name System (DNS) protoc
 
 Automated builds of the image are available on [Dockerhub](https://hub.docker.com/r/drseussfreak/bind) and is the recommended method of installation.
 
-#### Create authorized_keys
-Each user is authenticated by ssh key during login, and to be able to do it, specially 'crafted' file is required. It's like normal authorized_keys file but with username at the beginning. General file format is:
-```
-username:ssh_public_key
-```
-
 ## Quickstart
 
 Docker Run:

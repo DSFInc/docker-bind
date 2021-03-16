@@ -22,7 +22,7 @@ COPY --from=add-apt-repositories /etc/apt/sources.list /etc/apt/sources.list
 
 RUN rm -rf /etc/apt/apt.conf.d/docker-gzip-indexes \
  && apt-get update \
- && apt-get upgrade -y
+ && apt-get upgrade -y \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y \
       tzdata libauthen-oath-perl \
       bind9=1:${BIND_VERSION}* bind9-host=1:${BIND_VERSION}* dnsutils \
@@ -30,7 +30,7 @@ RUN rm -rf /etc/apt/apt.conf.d/docker-gzip-indexes \
  && apt upgrade -y \
  && rm -rf /var/lib/apt/lists/* 
 
-COPY entrypoint.sh /sbin/entrypoint.sh
+COPY tools/entrypoint.sh /sbin/entrypoint.sh
 
 RUN chmod 755 /sbin/entrypoint.sh
 

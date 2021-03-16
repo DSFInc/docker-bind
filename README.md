@@ -1,7 +1,7 @@
 # [drseussfreak/bind](https://hub.docker.com/r/drseussfreak/bind)
-This is a fork of [sameersbn's](https://github.com/sameersbn/docker-bind) bind image.  It hadn't been updated in quite some time, and the ubuntu release it was based on (19.10) has EOL'd.   This is an updated image, rebased to Ubuntu 20.04.2, the latest bind and the latest version of webmin (1.973).   Contributions welcomed, I will try to keep this updated as necessary.
- 
-# Only use Master, this is Dev and will probably break stuff as I tinker
+This is a fork of [sameersbn's](https://github.com/sameersbn/docker-bind) and [eafxx's](https://hub.docker.com/r/eafxx/bind) bind images.  [sameersbn's](https://github.com/sameersbn/docker-bind) had't been updated in a while, and [eafxx's](https://hub.docker.com/r/eafxx/bind) had put some recent work in to update bind and webmin.   This is running Ubuntu 20.04.02 with webmin 1.973.  I've also added the option to enble two-factor authentication into the image by default, so if you want to use it, the settings survive image updates.
+
+If you have any problems or requests, please create an issue, and I will do my best to help.  Please bare with me, as this is my first image. 
 
 ## Contents
 - [Introduction](#introduction)

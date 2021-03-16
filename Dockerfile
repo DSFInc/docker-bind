@@ -1,6 +1,7 @@
 FROM ubuntu:latest AS add-apt-repositories
 
 RUN apt-get update \
+ && apt upgrade -y \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends wget sudo gnupg2 \
  && apt-key adv --fetch-keys http://www.webmin.com/jcameron-key.asc \
  && wget --no-check-certificate -q -O - http://www.webmin.com/jcameron-key.asc | apt-key add - \

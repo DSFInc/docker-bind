@@ -1,6 +1,8 @@
 # [drseussfreak/bind](https://hub.docker.com/r/drseussfreak/bind)
 This is a fork of [sameersbn's](https://github.com/sameersbn/docker-bind) bind image.  It hadn't been updated in quite some time, and the ubuntu release it was based on (19.10) has EOL'd.   This is an updated image, rebased to Ubuntu 20.04.2, the latest bind and the latest version of webmin (1.973).   Contributions welcomed, I will try to keep this updated as necessary.
  
+# Only use Master, this is Dev and will probably break stuff as I tinker
+
 ## Contents
 - [Introduction](#introduction)
   - [Installation](#installation)

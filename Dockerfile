@@ -1,11 +1,13 @@
-FROM ubuntu:latest AS add-apt-repositories
+FROM drseussfreak/ubuntu AS add-apt-repositories
 
 RUN apt-get update \
- && apt upgrade -y \
+ && apt-get upgrade -y \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends wget sudo gnupg2 \
  && apt-key adv --fetch-keys http://www.webmin.com/jcameron-key.asc \
  && wget --no-check-certificate -q -O - http://www.webmin.com/jcameron-key.asc | apt-key add - \
- && echo "deb [trusted=yes] http://download.webmin.com/download/repository sarge contrib" >> /etc/apt/sources.list
+ && echo "deb [trusted=yes] http://download.webmin.com/download/repository sarge contrib" >> /etc/apt/sources.list \
+ && apt-get update \
+ && apt-get upgrade -y
 
 FROM ubuntu:latest
 LABEL maintainer="DrSeussFreak"
@@ -22,12 +24,12 @@ COPY --from=add-apt-repositories /etc/apt/sources.list /etc/apt/sources.list
 
 RUN rm -rf /etc/apt/apt.conf.d/docker-gzip-indexes \
  && apt-get update \
- && apt-get upgrade -y \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y \
-      tzdata libauthen-oath-perl \
+      libauthen-oath-perl \
       bind9=1:${BIND_VERSION}* bind9-host=1:${BIND_VERSION}* dnsutils \
       webmin=${WEBMIN_VERSION}* \
- && apt upgrade -y \
+ && apt-get update \
+ && apt-get upgrade -y \
  && rm -rf /var/lib/apt/lists/* 
 
 COPY tools/entrypoint.sh /sbin/entrypoint.sh

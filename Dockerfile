@@ -6,8 +6,7 @@ RUN apt-get update \
  && apt-key adv --fetch-keys http://www.webmin.com/jcameron-key.asc \
  && wget --no-check-certificate -q -O - http://www.webmin.com/jcameron-key.asc | apt-key add - \
  && echo "deb [trusted=yes] http://download.webmin.com/download/repository sarge contrib" >> /etc/apt/sources.list \
- && apt-get update \
- && apt-get upgrade -y
+ && apt-get update
 
 FROM drseussfreak/ubuntu
 LABEL maintainer="DrSeussFreak"
@@ -28,8 +27,6 @@ RUN rm -rf /etc/apt/apt.conf.d/docker-gzip-indexes \
       libauthen-oath-perl \
       bind9=1:${BIND_VERSION}* bind9-host=1:${BIND_VERSION}* dnsutils \
       webmin=${WEBMIN_VERSION}* \
- && apt-get update \
- && apt-get upgrade -y \
  && rm -rf /var/lib/apt/lists/* 
 
 COPY tools/entrypoint.sh /sbin/entrypoint.sh

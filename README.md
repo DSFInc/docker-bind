@@ -65,7 +65,7 @@ Container images are configured using parameters passed at runtime (such as thos
 
 | Parameter | Function |
 | :----: | --- |
-| `-p "53:53/tcp"` `-p "53:53/udp" | DNS TCP/UDP port|
+| `-p "53:53/tcp"` `-p "53:53/udp" | DNS TCP/UDP port (you can also configure it as serverip:53:53 without the quotes)|
 | `-p 10000:10000/tcp` | Webmin port |
 | `-e WEBMIN_ENABLED=true` | Enable/Disable Webmin (true/false) |
 | `-e ROOT_PASSWORD=password` | Set a password for Webmin root. Parameter has no effect when the launch of Webmin is disabled.  |

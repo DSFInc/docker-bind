@@ -9,7 +9,7 @@ RUN apt-get update \
  && apt-get update \
  && apt-get upgrade -y
 
-FROM ubuntu:latest
+FROM drseussfreak/ubuntu
 LABEL maintainer="DrSeussFreak"
 
 ENV BIND_USER=bind \

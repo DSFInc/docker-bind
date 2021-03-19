@@ -1,4 +1,4 @@
-version: "3.6"
+version: "3.8"
 services:
     bind:
         container_name: bind
@@ -7,8 +7,8 @@ services:
         image: drseussfreak/bind
         restart: unless-stopped
         ports:
-            - serverip:53:53/tcp
-            - serverip:53:53/udp
+            - "53:53/tcp"
+            - "53:53/udp"
             - 10000:10000/tcp
         volumes:
             - /path/to/bind/data:/data

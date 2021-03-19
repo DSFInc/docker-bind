@@ -24,7 +24,7 @@ Docker Run:
 
 ```bash
 docker run --name bind -d --restart=always \
-  -p serverip:53:53/tcp -p serverip:53:53/udp -p 10000:10000/tcp \
+  -p "53:53/tcp" -p "53:53/udp" -p 10000:10000/tcp \
   -v /path/to/bind/data:/data \
   drseussfreak/bind
 ```
@@ -34,6 +34,8 @@ OR
 Docker Compose
 
 ```
+version "3.8"
+services:
     bind:
         container_name: bind
         hostname: bind
@@ -41,8 +43,8 @@ Docker Compose
         image: drseussfreak/bind
         restart: unless-stopped
         ports:
-            - serverip:53:53/tcp
-            - serverip:53:53/udp
+            - "53:53/tcp"
+            - "53:53/udp"
             - 10000:10000/tcp
         volumes:
             - /path/to/bind/data:/data
@@ -63,8 +65,8 @@ Container images are configured using parameters passed at runtime (such as thos
 
 | Parameter | Function |
 | :----: | --- |
-| `-p 53:53/tcp` `-p 53:53/udp` | DNS TCP/UDP port|
-| `-p 10000/tcp` | Webmin port |
+| `-p "53:53/tcp"` `-p "53:53/udp" | DNS TCP/UDP port (you can also configure it as serverip:53:53 without the quotes)|
+| `-p 10000:10000/tcp` | Webmin port |
 | `-e WEBMIN_ENABLED=true` | Enable/Disable Webmin (true/false) |
 | `-e ROOT_PASSWORD=password` | Set a password for Webmin root. Parameter has no effect when the launch of Webmin is disabled.  |
 | `-e WEBMIN_INIT_SSL_ENABLED=false` | Enable/Disable Webmin SSL (true/false). If Webmin should be served via SSL or not. Defaults to `true`. |

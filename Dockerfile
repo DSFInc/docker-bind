@@ -27,7 +27,8 @@ RUN rm -rf /etc/apt/apt.conf.d/docker-gzip-indexes \
       libauthen-oath-perl \
       bind9=1:${BIND_VERSION}* bind9-host=1:${BIND_VERSION}* dnsutils \
       webmin=${WEBMIN_VERSION}* \
- && rm -rf /var/lib/apt/lists/* 
+ && apt-get upgrade -y \
+ && rm -rf /var/lib/apt/lists/*
 
 COPY tools/entrypoint.sh /sbin/entrypoint.sh
 

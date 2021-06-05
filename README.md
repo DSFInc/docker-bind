@@ -2,7 +2,7 @@
 
 <img src="https://dsfinc.github.io/assets/images/webmin.png" width="206" height="189">
 
-This is a fork of [sameersbn's](https://github.com/sameersbn/docker-bind) and [eafxx's](https://hub.docker.com/r/eafxx/bind) bind images.  [sameersbn's](https://github.com/sameersbn/docker-bind) had't been updated in a while, and [eafxx's](https://hub.docker.com/r/eafxx/bind) had put some recent work in to update bind and webmin.   This is running Ubuntu 20.04.02 with webmin 1.973.  I've also added the option to enble two-factor authentication into the image by default, so if you want to use it, the settings survive image updates.
+This is a fork of [sameersbn's](https://github.com/sameersbn/docker-bind) and [eafxx's](https://hub.docker.com/r/eafxx/bind) bind images.  [sameersbn's](https://github.com/sameersbn/docker-bind) had't been updated in a while, and [eafxx's](https://hub.docker.com/r/eafxx/bind) had put some recent work in to update bind and webmin.   I've added the option to enble two-factor authentication into the image by default, so if you want to use it, the settings survive image updates.  I've also updated the install to use the latest webmin version available.
 
 If you have any problems or requests, please create an issue, and I will do my best to help.  Please bare with me, as this is my first image. 
 

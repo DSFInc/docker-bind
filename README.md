@@ -1,6 +1,6 @@
-# [drseussfreak/bind](https://hub.docker.com/r/drseussfreak/bind)
+# [dsfinc/bind](https://hub.docker.com/r/dsfinc/bind)
 
-<img src="https://drseussfreak.github.io/assets/images/webmin.png" width="206" height="189">
+<img src="https://dsfinc.github.io/assets/images/webmin.png" width="206" height="189">
 
 This is a fork of [sameersbn's](https://github.com/sameersbn/docker-bind) and [eafxx's](https://hub.docker.com/r/eafxx/bind) bind images.  [sameersbn's](https://github.com/sameersbn/docker-bind) had't been updated in a while, and [eafxx's](https://hub.docker.com/r/eafxx/bind) had put some recent work in to update bind and webmin.   This is running Ubuntu 20.04.02 with webmin 1.973.  I've also added the option to enble two-factor authentication into the image by default, so if you want to use it, the settings survive image updates.
 
@@ -19,7 +19,7 @@ BIND is open source software that implements the Domain Name System (DNS) protoc
 
 ## Installation
 
-Automated builds of the image are available on [Dockerhub](https://hub.docker.com/r/drseussfreak/bind) and is the recommended method of installation.
+Automated builds of the image are available on [Dockerhub](https://hub.docker.com/r/dsfinc/bind) and is the recommended method of installation.
 
 ## Quickstart
 
@@ -29,7 +29,7 @@ Docker Run:
 docker run --name bind -d --restart=always \
   -p "53:53/tcp" -p "53:53/udp" -p 10000:10000/tcp \
   -v /path/to/bind/data:/data \
-  drseussfreak/bind
+  dsfinc/bind
 ```
 
 OR
@@ -43,7 +43,7 @@ services:
         container_name: bind
         hostname: bind
         network_mode: bridge
-        image: drseussfreak/bind
+        image: dsfinc/bind
         restart: unless-stopped
         ports:
             - "53:53/tcp"

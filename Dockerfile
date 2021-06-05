@@ -1,4 +1,4 @@
-FROM drseussfreak/ubuntu AS add-apt-repositories
+FROM dsfinc/ubuntu AS add-apt-repositories
 
 RUN apt-get update \
  && apt-get upgrade -y \
@@ -8,7 +8,7 @@ RUN apt-get update \
  && echo "deb [trusted=yes] http://download.webmin.com/download/repository sarge contrib" >> /etc/apt/sources.list \
  && apt-get update
 
-FROM drseussfreak/ubuntu
+FROM dsfinc/ubuntu
 LABEL maintainer="DrSeussFreak"
 
 ENV BIND_USER=bind \

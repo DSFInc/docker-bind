@@ -12,8 +12,6 @@ FROM dsfinc/ubuntu
 LABEL maintainer="DrSeussFreak"
 
 ENV BIND_USER=bind \
-    BIND_VERSION=9.16.1 \
-    WEBMIN_VERSION=1.974 \
     DATA_DIR=/data \
     WEBMIN_INIT_SSL_ENEABLE="" \
     TZ=""
@@ -24,9 +22,7 @@ COPY --from=add-apt-repositories /etc/apt/sources.list /etc/apt/sources.list
 RUN rm -rf /etc/apt/apt.conf.d/docker-gzip-indexes \
  && apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y \
-      libauthen-oath-perl \
-      bind9=1:${BIND_VERSION}* bind9-host=1:${BIND_VERSION}* dnsutils \
-      webmin=${WEBMIN_VERSION}* \
+      libauthen-oath-perl bind9 bind9-host dnsutils webmin \
  && apt-get upgrade -y \
  && rm -rf /var/lib/apt/lists/*
 

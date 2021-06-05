@@ -4,7 +4,7 @@ services:
         container_name: bind
         hostname: bind
         network_mode: bridge
-        image: drseussfreak/bind
+        image: dsf/bind
         restart: unless-stopped
         ports:
             - "53:53/tcp"

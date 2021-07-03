@@ -23,6 +23,7 @@ RUN rm -rf /etc/apt/apt.conf.d/docker-gzip-indexes \
  && apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y \
       libauthen-oath-perl bind9 bind9-host dnsutils webmin \
+ && apt-get update \
  && apt-get upgrade -y \
  && rm -rf /var/lib/apt/lists/*
 
